@@ -163,10 +163,63 @@ class ParameterPage extends StatefulWidget {
 class _ParameterPageState extends State<ParameterPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      
+      child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+           width: 158,
+          height: 151,
+          decoration: ShapeDecoration(
+            color: Color(0xFFEDF7ED),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(Icons.device_thermostat, size: 39, color: Color((0xFFA8C96F)),),
+              Text(
+                "TEMPERATURE",
+                 textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.46,
+            ),
+           ),
+           SizedBox(height: 15,),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                '32',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 65,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w600,
+                  height: 0.34,
+                  letterSpacing: 0.46,
+                ),
+              ),
+            ],
+           )
+            ],
+          ),
+
+          
+        ),
+        SizedBox(width: 20,),
         Container(
            width: 158,
           height: 151,
@@ -176,9 +229,111 @@ class _ParameterPageState extends State<ParameterPage> {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
+          
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.water_drop, size: 39, color: Color((0xFFA8C96F)),),
+              SizedBox(width: 7.5,),
+              Column( mainAxisAlignment: MainAxisAlignment.start,
+               children:[
+                Padding(padding: EdgeInsets.only(top: 15)),
+                Text(
+                "HUMIDITY",
+                 textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.46,
+            ),
+          ),
+          SizedBox(height: 15,),
+           Text(
+                "80",
+                 textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 65,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.46,
+            ),
+          ),
+               ]
+              )
+            ],
+          )
+        ),
+          ],
+        ),
+        SizedBox(height: 20,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+           width: 158,
+          height: 151,
+          decoration: ShapeDecoration(
+            color: Color(0xFFEDF7ED),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          padding: EdgeInsets.only(bottom: 100, left: 10),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(Icons.co2_sharp, size: 39, color: Color((0xFFA8C96F)),),
+              SizedBox(width: 10,),
+              Text(
+                "CO2 LEVEL",
+                 textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.46,
+            ),
+          ),
+            ],
+          )
+        ),
+        SizedBox(width: 20,),
+        Container(
+           width: 158,
+          height: 151,
+          decoration: ShapeDecoration(
+            color: Color(0xFFEDF7ED),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          padding: EdgeInsets.only(bottom: 100),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(Icons.lightbulb, size: 39, color: Color((0xFFA8C96F)),),
+              Text(
+                "LIGHT INTENSITY",
+                 textAlign: TextAlign.center,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 13,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.46,
+            ),
+          ),
+            ],
+          )
+        ),
+          ],
         )
       ],
-    );
+    ),);
   }
 }
 
@@ -195,6 +350,23 @@ class HistoryPage extends StatefulWidget {
 class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children:[
+      Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+           width: 323,
+          height: 373,
+          decoration: ShapeDecoration(
+            color: Color(0xFFEDF7ED),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+        ),],)]
+    );
   }
 }
