@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "102886714635",
+    "project_id": "kabutech-d5714",
+    "storage_bucket": "kabutech-d5714.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102886714635:android:cba09bf115143cd42dc60e",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102886714635-bdk5pc3s4dbfb7aggrrocnvpbqt0d1nl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtk2S-UhnZzxRe1M32L3IPZHixeo14DMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102886714635-bdk5pc3s4dbfb7aggrrocnvpbqt0d1nl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
