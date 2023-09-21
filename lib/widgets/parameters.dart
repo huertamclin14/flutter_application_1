@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -39,11 +40,15 @@ class _ParameterPageState extends State<ParameterPage> {
     double co2 = widget.co2;
     double light = widget.light;
     final temperatures = widget.temperatures;
-    final humidities= widget.humidities;
+    final humidities = widget.humidities;
     final carbons = widget.carbons;
-    final lights= widget.lights;
+    final lights = widget.lights;
 
     return Container(
+        child: ConstrainedBox(
+      constraints: const BoxConstraints(
+        minHeight: 1550,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,8 +56,113 @@ class _ParameterPageState extends State<ParameterPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              InkWell(
+                onTap: () {
+                 showDialog(context: context, builder: (BuildContext context) {
+                   return Dialog(
+                    
+                    shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+                      child: Container(
+                        width: ((MediaQuery.of(context).size.width - 40) * 45),
+                        height: 100,
+                        decoration: ShapeDecoration(
+                  color: const Color(0xFFEDF7ED),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text('Room Temperature'),
+                            SizedBox(height: 16),
+                            Text('Dialog Content'), 
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              child:Container(
+                width: ((MediaQuery.of(context).size.width - 40) * 0.45),
+                height: 151,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFEDF7ED),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                padding: const EdgeInsets.all(5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.device_thermostat,
+                          size: 35,
+                          color: Color((0xFF386150)),
+                        ),
+                        
+                        Text(
+                          "TEMPERATURE",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontFamily: 'digital-7',
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                        
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          temperature.toStringAsFixed(1),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 60,
+                            fontFamily: 'digital-7',
+                            fontWeight: FontWeight.w500,
+                            height: 0.34,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                        const Text(
+                          '°C',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'digital-7',
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 0.46,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
               Container(
-                width: ((MediaQuery.of(context).size.width - 40) * 0.43),
+                width: ((MediaQuery.of(context).size.width - 40) * 0.45),
                 height: 151,
                 decoration: ShapeDecoration(
                   color: const Color(0xFFEDF7ED),
@@ -68,80 +178,9 @@ class _ParameterPageState extends State<ParameterPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.device_thermostat,
-                          size: 39,
-                          color: Color((0xFFA8C96F)),
-                        ),
-                        Text(
-                          "TEMPERATURE",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 0.46,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          temperature.toStringAsFixed(1),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 40,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
-                            height: 0.34,
-                            letterSpacing: 0.46,
-                          ),
-                        ),
-                        const Text(
-                          '°C',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 19,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 0.46,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Container(
-                width: ((MediaQuery.of(context).size.width - 40) * 0.43),
-                height: 151,
-                decoration: ShapeDecoration(
-                  color: Color(0xFFEDF7ED),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                padding: EdgeInsets.all(5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
                           Icons.water_drop_sharp,
                           size: 39,
-                          color: Color((0xFFA8C96F)),
+                          color: Color((0xFF386150)),
                         ),
                         SizedBox(
                           width: 10,
@@ -151,16 +190,17 @@ class _ParameterPageState extends State<ParameterPage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 14,
-                            fontFamily: 'Roboto',
+                            fontSize: 18,
+                            fontFamily: 'digital-7',
                             fontWeight: FontWeight.w600,
-                            letterSpacing: 0.46,
+                            letterSpacing: 2,
                           ),
                         ),
+                        
                       ],
                     ),
-                    SizedBox(
-                      height: 40,
+                    const SizedBox(
+                      height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -169,21 +209,21 @@ class _ParameterPageState extends State<ParameterPage> {
                         Text(
                           humidity.toStringAsFixed(1),
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
-                            fontSize: 40,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
+                            fontSize: 60,
+                            fontFamily: 'digital-7',
+                            fontWeight: FontWeight.w500,
                             height: 0.34,
-                            letterSpacing: 0.46,
+                            letterSpacing: 1,
                           ),
                         ),
-                        Text(
+                        const Text(
                           '%',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 19,
-                            fontFamily: 'Roboto',
+                            fontSize: 20,
+                            fontFamily: 'digital-7',
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.46,
                           ),
@@ -195,32 +235,32 @@ class _ParameterPageState extends State<ParameterPage> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: ((MediaQuery.of(context).size.width - 40) * 0.43),
+                width: ((MediaQuery.of(context).size.width - 40) * 0.45),
                 height: 151,
                 decoration: ShapeDecoration(
-                  color: Color(0xFFEDF7ED),
+                  color: const Color(0xFFEDF7ED),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
+                    const Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
                           Icons.co2_sharp,
                           size: 39,
-                          color: Color((0xFFA8C96F)),
+                          color: Color((0xFF386150)),
                         ),
                         SizedBox(
                           width: 10,
@@ -230,16 +270,16 @@ class _ParameterPageState extends State<ParameterPage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 14,
-                            fontFamily: 'Roboto',
+                            fontSize: 18,
+                            fontFamily: 'digital-7',
                             fontWeight: FontWeight.w600,
-                            letterSpacing: 0.46,
+                            letterSpacing: 1,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 40,
+                    const SizedBox(
+                      height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -247,21 +287,21 @@ class _ParameterPageState extends State<ParameterPage> {
                       children: [
                         Text(
                           co2.toStringAsFixed(0),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
-                            fontSize: 40,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
+                            fontSize: 60,
+                            fontFamily: 'digital-7',
+                            fontWeight: FontWeight.w500,
                             height: 0.34,
-                            letterSpacing: 0.46,
+                            letterSpacing: 1,
                           ),
                         ),
-                        Text(
+                        const Text(
                           'PPM',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 19,
-                            fontFamily: 'Roboto',
+                            fontFamily: 'digital-7',
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.46,
                           ),
@@ -271,45 +311,45 @@ class _ParameterPageState extends State<ParameterPage> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Container(
-                width: ((MediaQuery.of(context).size.width - 40) * 0.43),
+                width: ((MediaQuery.of(context).size.width - 40) * 0.45),
                 height: 151,
                 decoration: ShapeDecoration(
-                  color: Color(0xFFEDF7ED),
+                  color: const Color(0xFFEDF7ED),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
+                    const Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
                           Icons.lightbulb_sharp,
                           size: 39,
-                          color: Color((0xFFA8C96F)),
+                          color: Color((0xFF386150)),
                         ),
                         Text(
                           "LIGHT INTENSITY",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 12.5,
-                            fontFamily: 'Roboto',
+                            fontSize: 16,
+                            fontFamily: 'digital-7',
                             fontWeight: FontWeight.w600,
-                            letterSpacing: 0.46,
+                            letterSpacing: 1,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 40,
+                    const SizedBox(
+                      height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -318,21 +358,21 @@ class _ParameterPageState extends State<ParameterPage> {
                         Text(
                           light.toStringAsFixed(1),
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
-                            fontSize: 40,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
+                            fontSize: 60,
+                            fontFamily: 'digital-7',
+                            fontWeight: FontWeight.w500,
                             height: 0.34,
-                            letterSpacing: 0.46,
+                            letterSpacing: 1,
                           ),
                         ),
-                        Text(
+                        const Text(
                           'LUX',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 19,
-                            fontFamily: 'Roboto',
+                            fontFamily: 'digital-7',
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.46,
                           ),
@@ -344,19 +384,46 @@ class _ParameterPageState extends State<ParameterPage> {
               ),
             ],
           ),
-          SizedBox(
-            height: 30,
+          const SizedBox(
+            height: 40,
           ),
           Container(
-            width: ((MediaQuery.of(context).size.width - 40) * 0.9),
-                  height: 250,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFEDF7ED),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+            width: ((MediaQuery.of(context).size.width * 0.8)),
+            height: 42,
+            decoration: ShapeDecoration(
+              color: const Color((0xFF386150)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+            ),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "PARAMETER'S HISTORY ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w700,
+                    height: 1.10,
+                    letterSpacing: 0.46,
                   ),
-            padding: EdgeInsets.all(20),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            width: ((MediaQuery.of(context).size.width - 40) * 0.9),
+            height: 250,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFEDF7ED),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -366,21 +433,23 @@ class _ParameterPageState extends State<ParameterPage> {
                   height: 40,
                   padding: const EdgeInsets.all(5),
                   decoration: ShapeDecoration(
-                    color: const Color ((0xFFA8C96F)),
+                    color: const Color((0xFF386150)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(padding: EdgeInsets.all(5)),
                       Icon(
-                          Icons.device_thermostat,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                      SizedBox(width: 2,),
+                        Icons.device_thermostat,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
                       Text(
                         'TEMPERATURE',
                         style: TextStyle(
@@ -395,7 +464,7 @@ class _ParameterPageState extends State<ParameterPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 AspectRatio(
                   aspectRatio: 2,
                   child: LineChart(
@@ -407,20 +476,21 @@ class _ParameterPageState extends State<ParameterPage> {
                                     index.toDouble(), element.toDouble()))
                                 .toList(),
                             isCurved: false,
-                            dotData: FlDotData(show: false),
+                            dotData: const FlDotData(show: false),
                             barWidth: 3,
                             color: Colors.red.shade700),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
                               bottom: BorderSide(), left: BorderSide())),
-                      gridData: FlGridData(show: false),
+                      gridData: const FlGridData(show: false),
                       titlesData: FlTitlesData(
                         bottomTitles: AxisTitles(sideTitles: _bottomTitles),
-                        leftTitles: AxisTitles(sideTitles: _leftsidetemperature),
-                        topTitles: AxisTitles(
+                        leftTitles:
+                            AxisTitles(sideTitles: _leftsidetemperature),
+                        topTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
-                        rightTitles: AxisTitles(
+                        rightTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
                       ),
                     ),
@@ -429,19 +499,19 @@ class _ParameterPageState extends State<ParameterPage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
             width: ((MediaQuery.of(context).size.width - 40) * 0.9),
-                  height: 250,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFEDF7ED),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-            padding: EdgeInsets.all(20),
+            height: 250,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFEDF7ED),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -451,21 +521,22 @@ class _ParameterPageState extends State<ParameterPage> {
                   height: 40,
                   padding: const EdgeInsets.all(5),
                   decoration: ShapeDecoration(
-                    color: const Color ((0xFFA8C96F)),
+                    color: const Color((0xFF386150)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
                       Icon(
-                          Icons.water_drop_sharp,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                      SizedBox(width: 5,),
+                        Icons.water_drop_sharp,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text(
                         'HUMIDITY',
                         style: TextStyle(
@@ -480,7 +551,7 @@ class _ParameterPageState extends State<ParameterPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 AspectRatio(
                   aspectRatio: 2,
                   child: LineChart(
@@ -492,20 +563,20 @@ class _ParameterPageState extends State<ParameterPage> {
                                     index.toDouble(), element.toDouble()))
                                 .toList(),
                             isCurved: false,
-                            dotData: FlDotData(show: false),
+                            dotData: const FlDotData(show: false),
                             barWidth: 3,
                             color: Colors.blue.shade700),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
                               bottom: BorderSide(), left: BorderSide())),
-                      gridData: FlGridData(show: false),
+                      gridData: const FlGridData(show: false),
                       titlesData: FlTitlesData(
                         bottomTitles: AxisTitles(sideTitles: _bottomTitles),
                         leftTitles: AxisTitles(sideTitles: _leftsidehumidity),
-                        topTitles: AxisTitles(
+                        topTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
-                        rightTitles: AxisTitles(
+                        rightTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
                       ),
                     ),
@@ -514,19 +585,19 @@ class _ParameterPageState extends State<ParameterPage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
             width: ((MediaQuery.of(context).size.width - 40) * 0.9),
-                  height: 250,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFEDF7ED),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-            padding: EdgeInsets.all(20),
+            height: 250,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFEDF7ED),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -536,21 +607,22 @@ class _ParameterPageState extends State<ParameterPage> {
                   height: 40,
                   padding: const EdgeInsets.all(5),
                   decoration: ShapeDecoration(
-                    color: const Color ((0xFFA8C96F)),
+                    color: const Color((0xFF386150)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
                       Icon(
-                          Icons.co2_sharp,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                      SizedBox(width: 5,),
+                        Icons.co2_sharp,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text(
                         'CO2 LEVEL',
                         style: TextStyle(
@@ -565,7 +637,7 @@ class _ParameterPageState extends State<ParameterPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 AspectRatio(
                   aspectRatio: 2,
                   child: LineChart(
@@ -577,20 +649,20 @@ class _ParameterPageState extends State<ParameterPage> {
                                     index.toDouble(), element.toDouble()))
                                 .toList(),
                             isCurved: false,
-                            dotData: FlDotData(show: false),
+                            dotData: const FlDotData(show: false),
                             barWidth: 3,
                             color: Colors.grey),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
                               bottom: BorderSide(), left: BorderSide())),
-                      gridData: FlGridData(show: false),
+                      gridData: const FlGridData(show: false),
                       titlesData: FlTitlesData(
                         bottomTitles: AxisTitles(sideTitles: _bottomTitles),
                         leftTitles: AxisTitles(sideTitles: _leftsidec02),
-                        topTitles: AxisTitles(
+                        topTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
-                        rightTitles: AxisTitles(
+                        rightTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
                       ),
                     ),
@@ -599,19 +671,19 @@ class _ParameterPageState extends State<ParameterPage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
             width: ((MediaQuery.of(context).size.width - 40) * 0.9),
-                  height: 250,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFEDF7ED),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-            padding: EdgeInsets.all(20),
+            height: 250,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFEDF7ED),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -621,21 +693,22 @@ class _ParameterPageState extends State<ParameterPage> {
                   height: 40,
                   padding: const EdgeInsets.all(5),
                   decoration: ShapeDecoration(
-                    color: const Color ((0xFFA8C96F)),
+                    color: const Color((0xFF386150)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
                       Icon(
-                          Icons.lightbulb_sharp,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                      SizedBox(width: 5,),
+                        Icons.lightbulb_sharp,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text(
                         'LIGHT INTENSITY',
                         style: TextStyle(
@@ -650,32 +723,32 @@ class _ParameterPageState extends State<ParameterPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 AspectRatio(
                   aspectRatio: 2,
                   child: LineChart(
                     LineChartData(
                       lineBarsData: [
                         LineChartBarData(
-                            spots:lights
+                            spots: lights
                                 .mapIndexed((index, element) => FlSpot(
                                     index.toDouble(), element.toDouble()))
                                 .toList(),
                             isCurved: false,
-                            dotData: FlDotData(show: false),
+                            dotData: const FlDotData(show: false),
                             barWidth: 3,
                             color: Colors.amber),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
                               bottom: BorderSide(), left: BorderSide())),
-                      gridData: FlGridData(show: false),
+                      gridData: const FlGridData(show: false),
                       titlesData: FlTitlesData(
                         bottomTitles: AxisTitles(sideTitles: _bottomTitles),
                         leftTitles: AxisTitles(sideTitles: _leftsidelight),
-                        topTitles: AxisTitles(
+                        topTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
-                        rightTitles: AxisTitles(
+                        rightTitles: const AxisTitles(
                             sideTitles: SideTitles(showTitles: false)),
                       ),
                     ),
@@ -686,7 +759,7 @@ class _ParameterPageState extends State<ParameterPage> {
           )
         ],
       ),
-    );
+    ));
   }
 
   SideTitles get _bottomTitles => SideTitles(
@@ -711,7 +784,7 @@ class _ParameterPageState extends State<ParameterPage> {
       interval: 1000,
       showTitles: true,
       getTitlesWidget: (value, meta) {
-        int values = (value/1000).round();
+        int values = (value / 1000).round();
         return Text('$values k');
       });
   SideTitles get _leftsidelight => SideTitles(

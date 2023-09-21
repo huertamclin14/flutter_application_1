@@ -1,6 +1,6 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-showNotification(String message) async {
+showNotification(String title,String message) async {
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
@@ -18,7 +18,7 @@ showNotification(String message) async {
 
   await flutterLocalNotificationsPlugin.show(
       1,
-      'Kabutech',
+      title,
       message,
       NotificationDetails(
           android: AndroidNotificationDetails(channel.id, channel.name,

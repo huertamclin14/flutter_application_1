@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 class TopCard extends StatefulWidget {
   final double value;
-  const TopCard({super.key, required this.value});
+  final int index;
+  const TopCard({super.key, required this.value, required this.index});
 
   @override
   State<TopCard> createState() => _TopCardState();
 }
 
 class _TopCardState extends State<TopCard> {
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +31,9 @@ class _TopCardState extends State<TopCard> {
             width: (((MediaQuery. of(context).size.width  -20)* 0.9) - 16) * 0.475,
             height: 130,
             decoration: ShapeDecoration(
-              color: const Color(0xFFA8C96F),
+              
+              color: widget.index == 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
