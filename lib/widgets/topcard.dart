@@ -75,6 +75,7 @@ class _TopCardState extends State<TopCard> {
                       ),
                     )
                   ],
+
                 ),
                 const Text(
                   'DD/MM/YYYY',
@@ -90,7 +91,7 @@ class _TopCardState extends State<TopCard> {
             ),
           ),
           Image.asset(
-            'images/mushroom.png',
+            'images/mushroom_vector.png',
             width: ((MediaQuery. of(context).size.width * 0.9) - 16) * 0.475,
           )
         ],

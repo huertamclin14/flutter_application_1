@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'widgets/topcard.dart';
@@ -11,6 +13,8 @@ import 'widgets/history.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_application_1/services/notification_service.dart';
 import 'widgets/About.dart';
+import 'package:get/get.dart';
+
 
 late var fcmKey;
 void main() async {
@@ -44,7 +48,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: Kabutech(),
     );
@@ -202,12 +206,8 @@ class _KabutechState extends State<Kabutech> {
               size: 25,
             ),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AboutAppScreen(),
-                ),
-              );
+               Get.to(() =>AboutAppScreen(), transition: Transition.circularReveal,
+               duration: Duration(seconds: 1));
             },
           ),
           const Padding(padding: EdgeInsets.all(8))
@@ -220,7 +220,7 @@ class _KabutechState extends State<Kabutech> {
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,  
             children: [
               TopCard(value: 40.5, index: index),
               const SizedBox(

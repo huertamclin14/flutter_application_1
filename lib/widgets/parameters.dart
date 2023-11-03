@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -58,110 +57,201 @@ class _ParameterPageState extends State<ParameterPage> {
             children: [
               InkWell(
                 onTap: () {
-                 showDialog(context: context, builder: (BuildContext context) {
-                   return Dialog(
-                    
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Container(
+                          width:
+                              ((MediaQuery.of(context).size.width - 40) * 45),
+                          height: 270,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFEDF7ED),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Room Temperature',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Sensor: DHT 22',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'Description: The displayed temperature represents the real-time environmental parameter reading. The prototype is designed to maintain and control the temperature within a specific range of 30-35 degrees Celsius. This temperature range is crucial as it corresponds to the ideal conditions required for mushroom cultivation.',
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Container(
+                  width: ((MediaQuery.of(context).size.width - 40) * 0.45),
+                  height: 151,
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFEDF7ED),
                     shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-                      child: Container(
-                        width: ((MediaQuery.of(context).size.width - 40) * 45),
-                        height: 100,
-                        decoration: ShapeDecoration(
-                  color: const Color(0xFFEDF7ED),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
-                ),
-                padding: EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text('Room Temperature'),
-                            SizedBox(height: 16),
-                            Text('Dialog Content'), 
-                          ],
-                        ),
+                  padding: const EdgeInsets.all(5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.device_thermostat,
+                            size: 35,
+                            color: Color((0xFF386150)),
+                          ),
+                          Text(
+                            "TEMPERATURE",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontFamily: 'digital-7',
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
                       ),
-                    );
-                  },
-                );
-              },
-              child:Container(
-                width: ((MediaQuery.of(context).size.width - 40) * 0.45),
-                height: 151,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFEDF7ED),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            temperature.toStringAsFixed(1),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 60,
+                              fontFamily: 'digital-7',
+                              fontWeight: FontWeight.w500,
+                              height: 0.34,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                          const Text(
+                            '°C',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontFamily: 'digital-7',
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 0.46,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
-                padding: const EdgeInsets.all(5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.device_thermostat,
-                          size: 35,
-                          color: Color((0xFF386150)),
-                        ),
-                        
-                        Text(
-                          "TEMPERATURE",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontFamily: 'digital-7',
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1,
-                          ),
-                        ),
-                        
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          temperature.toStringAsFixed(1),
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 60,
-                            fontFamily: 'digital-7',
-                            fontWeight: FontWeight.w500,
-                            height: 0.34,
-                            letterSpacing: 1,
-                          ),
-                        ),
-                        const Text(
-                          '°C',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontFamily: 'digital-7',
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 0.46,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
               ),
               const SizedBox(
                 width: 20,
               ),
-              Container(
+              InkWell(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Container(
+                          width:
+                              ((MediaQuery.of(context).size.width - 40) * 45),
+                          height: 270,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFEDF7ED),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Room Humidity',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Sensor: DHT 22',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'Description: The displayed humidity represents the real-time environmental parameter reading. The prototype is designed to maintain and control the humidity within a specific range of 80-90 %. This humidity range is crucial as it corresponds to the ideal conditions required for mushroom cultivation.',
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                        ),
+                      );
+                    },
+                  );
+                },
+              child: Container(
                 width: ((MediaQuery.of(context).size.width - 40) * 0.45),
                 height: 151,
                 decoration: ShapeDecoration(
@@ -196,7 +286,6 @@ class _ParameterPageState extends State<ParameterPage> {
                             letterSpacing: 2,
                           ),
                         ),
-                        
                       ],
                     ),
                     const SizedBox(
@@ -233,15 +322,79 @@ class _ParameterPageState extends State<ParameterPage> {
                   ],
                 ),
               ),
+              )
             ],
           ),
           const SizedBox(
             height: 20,
           ),
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              InkWell(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Container(
+                          width:
+                              ((MediaQuery.of(context).size.width - 40) * 45),
+                          height: 270,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFEDF7ED),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Room C02 Level',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Sensor: MQ-135 Gas Sensor',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'Description: The displayed c02 level represents the real-time environmental parameter reading. The prototype is designed to maintain and control the c02 level within a specific range of 1000-1500 PPM. This carbon dioxide range is crucial as it corresponds to the ideal conditions required for mushroom cultivation.',
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                        ),
+                      );
+                    },
+                  );
+                },
+              child: Container(
                 width: ((MediaQuery.of(context).size.width - 40) * 0.45),
                 height: 151,
                 decoration: ShapeDecoration(
@@ -311,10 +464,73 @@ class _ParameterPageState extends State<ParameterPage> {
                   ],
                 ),
               ),
+              ),
               const SizedBox(
                 width: 20,
               ),
-              Container(
+              InkWell(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Container(
+                          width:
+                              ((MediaQuery.of(context).size.width - 40) * 45),
+                          height: 270,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFEDF7ED),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Room Light Intensity',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Sensor: BH1750 Light Sensor',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        'Description: The displayed light intensity represents the real-time environmental parameter reading. The prototype is designed to maintain and control the light intensity within a specific range of 500 LUX. This light intensity range is crucial as it corresponds to the ideal conditions required for mushroom cultivation.',
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ]),
+                        ),
+                      );
+                    },
+                  );
+                },
+              child: Container(
                 width: ((MediaQuery.of(context).size.width - 40) * 0.45),
                 height: 151,
                 decoration: ShapeDecoration(
@@ -381,6 +597,7 @@ class _ParameterPageState extends State<ParameterPage> {
                     )
                   ],
                 ),
+              ),
               ),
             ],
           ),
@@ -478,7 +695,7 @@ class _ParameterPageState extends State<ParameterPage> {
                             isCurved: false,
                             dotData: const FlDotData(show: false),
                             barWidth: 3,
-                            color: Colors.red.shade700),
+                            color: Color(0xffff5252)),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
@@ -565,7 +782,7 @@ class _ParameterPageState extends State<ParameterPage> {
                             isCurved: false,
                             dotData: const FlDotData(show: false),
                             barWidth: 3,
-                            color: Colors.blue.shade700),
+                            color: Color(0XFF77aaff)),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
@@ -651,7 +868,7 @@ class _ParameterPageState extends State<ParameterPage> {
                             isCurved: false,
                             dotData: const FlDotData(show: false),
                             barWidth: 3,
-                            color: Colors.grey),
+                            color: Color(0xff8ae429)),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
@@ -737,7 +954,7 @@ class _ParameterPageState extends State<ParameterPage> {
                             isCurved: false,
                             dotData: const FlDotData(show: false),
                             barWidth: 3,
-                            color: Colors.amber),
+                            color: Color(0xfff9e909)),
                       ],
                       borderData: FlBorderData(
                           border: const Border(
@@ -755,6 +972,7 @@ class _ParameterPageState extends State<ParameterPage> {
                   ),
                 ),
               ],
+              
             ),
           )
         ],
@@ -763,7 +981,7 @@ class _ParameterPageState extends State<ParameterPage> {
   }
 
   SideTitles get _bottomTitles => SideTitles(
-      interval: 2,
+      interval: 3,
       showTitles: true,
       getTitlesWidget: (value, meta) {
         return Text(value.toStringAsFixed(0));
