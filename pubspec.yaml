@@ -37,14 +37,21 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.15.1
   cloud_firestore: ^4.9.1
-  fl_chart: ^0.63.0
   firebase_messaging: ^14.6.7
   overlay_support: ^2.1.0
   flutter_local_notifications: ^15.1.1
-  awesome_dialog: ^3.1.0
-  lottie: ^2.6.0
-  get: ^4.6.5
-  flutter_cube: ^0.1.1
+  flutter_logs: ^2.1.11
+  badges: ^3.1.2
+  percent_indicator: ^4.0.1
+  collection: ^1.17.2
+  intl: ^0.18.1
+  flutter_date_pickers: ^0.4.2
+  isoweek: ^1.1.4
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  provider: ^6.1.1
+  fl_chart: ^0.64.0
+  lottie: ^2.7.0
 
 dev_dependencies:
   flutter_test:
