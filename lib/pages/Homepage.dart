@@ -1,95 +1,34 @@
-
-
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'widgets/topcard.dart';
+import 'package:flutter_application_1/services/appState.dart';
+import 'package:flutter_application_1/widgets/topcard.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:flutter_application_1/firebase_options.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
-import 'pages/parameters.dart';
-import 'pages/history.dart';
+import 'history.dart';
+import 'parameters.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_application_1/services/notification_service.dart';
-import 'pages/About.dart';
+import 'About.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/services/database.dart';
 import 'package:flutter_application_1/services/appstate.dart';
 import 'package:flutter_application_1/services/notification_service.dart';
 import 'package:flutter_logs/flutter_logs.dart';
 
-late var fcmKey;
-late KabutechDatabase database;
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  database = KabutechDatabase('kabutech_test_db_2');
-
-  await FlutterLogs.initLogs(
-    logLevelsEnabled: [
-      LogLevel.INFO,
-      LogLevel.WARNING,
-      LogLevel.ERROR,
-      LogLevel.SEVERE
-    ],
-    timeStampFormat: TimeStampFormat.TIME_FORMAT_READABLE,
-    directoryStructure: DirectoryStructure.FOR_DATE,
-    logTypesEnabled: ["device", "network", "errors"],
-    logFileExtension: LogFileExtension.LOG,
-    logsWriteDirectoryName: "logs",
-    logsExportDirectoryName: "logs/exported",
-    debugFileOperations: true,
-    isDebuggable: true,
-  );
-
-  await database.initializeDatabase();
-  Map<String, dynamic> settings = await database.loadSettings();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-  await FirebaseMessaging.instance.setAutoInitEnabled(true);
-  final fcmToken = await FirebaseMessaging.instance.getToken();
-  print(fcmToken);
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    print(message.notification?.body ?? 'No new notification');
-    showNotification(message.notification?.title ?? 'No title',
-        message.notification?.body ?? 'No body');
-    // showNotification(message.notification?.body ?? 'No new notification');
-  });
-  FirebaseMessaging.onBackgroundMessage(backgroundMessageHandler);
-  fcmKey = await FirebaseMessaging.instance.getToken();
-
-  runApp(const MyApp());
-}
-
-Future<void> backgroundMessageHandler(RemoteMessage message) async {
-  showNotification(message.notification?.title ?? 'No title',
-      message.notification?.body ?? 'No body');
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  final AppState appState;
+  const HomePage({super.key, required this.appState});
 
   @override
-  Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Kabutech(),
-    );
-  }
+  State<HomePage> createState() => _HomePageState();
 }
 
-class Kabutech extends StatefulWidget {
-  const Kabutech({Key? key}) : super(key: key);
-
-  @override
-  State<Kabutech> createState() => _KabutechState();
-}
-
-class _KabutechState extends State<Kabutech> {
+class _HomePageState extends State<HomePage> {
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   int index = 0;
@@ -103,12 +42,15 @@ class _KabutechState extends State<Kabutech> {
   List<dynamic> carbons = [];
   List<dynamic> lights = [];
 
+    void switchPage(int index) {
+    setState(() {
+      pageIndex = index;
+    });
+  }
+
   @override
   void initState() {
-    print(fcmKey);
-    final fcm = <String, String>{"key": fcmKey};
 
-    db.collection('users').doc(fcmKey).set(fcm);
     final docRef = db.collection('parameters').orderBy('created_at').snapshots().listen(
       (event) {
         setState(() {
@@ -345,5 +287,7 @@ class _KabutechState extends State<Kabutech> {
         ),
       ),
     );
+
+
   }
 }

@@ -45,6 +45,12 @@ dependencies:
   lottie: ^2.6.0
   get: ^4.6.5
   flutter_cube: ^0.1.1
+  flutter_date_pickers: ^0.4.2
+  isoweek: ^1.1.4
+  sqflite: ^2.3.0
+  provider: ^6.1.1
+  path: ^1.8.3
+  flutter_logs: ^2.1.11
 
 dev_dependencies:
   flutter_test:

@@ -18,7 +18,7 @@ class _TopCardState extends State<TopCard> {
       height: 151,
       padding: const EdgeInsets.all(8),
       decoration: ShapeDecoration(
-        color: const Color(0xFFEDF7ED),
+        color: const Color(0xFFF6F6F6),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -32,7 +32,7 @@ class _TopCardState extends State<TopCard> {
             height: 130,
             decoration: ShapeDecoration(
               
-              color: widget.index == 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+              color: widget.index == 0 ? const Color(0xFF987554) : const Color(0xff987554),
 
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
