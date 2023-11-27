@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import 'package:flutter_application_1/services/appstate.dart';
+
 class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+  final AppState appState;
+  const AboutPage({
+    super.key,
+    required this.appState,
+  });
 
   @override
   Widget build(BuildContext context) {

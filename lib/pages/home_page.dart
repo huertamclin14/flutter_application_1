@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'package:flutter_application_1/services/appstate.dart';
+
 import 'package:flutter_application_1/pages/parameter_page.dart';
 import 'package:flutter_application_1/pages/history_page.dart';
 import 'package:flutter_application_1/pages/about_page.dart';
 
+import 'package:flutter_application_1/widgets/app_drawer.dart';
 import 'package:flutter_application_1/widgets/topcard.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final AppState appState;
+  const HomePage({
+    Key? key,
+    required this.appState,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   int pageIndex = 0;
@@ -27,20 +36,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: AppDrawer(
+        appState: widget.appState,
+      ),
       appBar: AppBar(
         backgroundColor:
             pageIndex == 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
         toolbarHeight: MediaQuery.of(context).size.height / 10,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+            onTap: () {
+              scaffoldKey.currentState!.openDrawer();
+            }, // Image tapped
+            splashColor: Colors.white10, // Splash color over image
+            child: Ink.image(
+              fit: BoxFit.cover, // Fixes border issues
+              width: 16,
+              height: 16,
+              image: const AssetImage('images/ey.png'),
+            ),
+          ),
+        ),
         title: const Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image(
-              image: AssetImage('images/ey.png'),
-              fit: BoxFit.contain,
-              width: 60,
-              height: 60,
-            ),
             SizedBox(width: 10),
             Text(
               'MUSHROOM',
@@ -73,7 +95,9 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const AboutPage(),
+                  builder: (context) => AboutPage(
+                    appState: widget.appState,
+                  ),
                 ),
               );
             },
