@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         backgroundColor:
-            pageIndex == 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+            pageIndex == 0 ? const Color(0xff987554) : const Color(0xff987554),
         toolbarHeight: MediaQuery.of(context).size.height / 10,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -52,10 +52,10 @@ class _HomePageState extends State<HomePage> {
             }, // Image tapped
             splashColor: Colors.white10, // Splash color over image
             child: Ink.image(
-              fit: BoxFit.cover, // Fixes border issues
-              width: 16,
-              height: 16,
+              fit: BoxFit.contain, // Fixes border issues
               image: const AssetImage('images/ey.png'),
+              height: 60,
+              width: 60,
             ),
           ),
         ),
@@ -117,12 +117,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         backgroundColor:
-            pageIndex == 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+            pageIndex == 0 ? const Color(0xff987554) : const Color(0xff987554),
         unselectedItemColor:
-            pageIndex != 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+            pageIndex != 0 ? const Color(0xff6F4E37) : const Color(0xff6F4E37),
         unselectedIconTheme: IconThemeData(
           color: pageIndex != 0
-              ? const Color(0xFF386150)
+              ? const Color(0xff6F4E37)
               : const Color(0xff6F4E37),
         ),
         selectedItemColor: Colors.white,
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         width: MediaQuery.of(context).size.width,
-        color: const Color(0xffc5e384),
+        color: Colors.white,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
