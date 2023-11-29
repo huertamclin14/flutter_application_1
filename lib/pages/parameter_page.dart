@@ -25,7 +25,12 @@ class _ParameterPageState extends State<ParameterPage> {
 
   @override
   void initState() {
-    db.collection('parameters').orderBy('created_at').snapshots().listen(
+    db
+        .collection('parameters')
+        .orderBy('created_at')
+        .limit(30)
+        .snapshots()
+        .listen(
       (event) {
         FlutterLogs.logInfo(
             'Homepage', 'Firebase', 'Got ${event.docs.first.data()}');
