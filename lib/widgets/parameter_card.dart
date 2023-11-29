@@ -92,7 +92,7 @@ class _ParameterCardState extends State<ParameterCard> {
         width: ((MediaQuery.of(context).size.width - 40) * 0.45),
         height: 151,
         decoration: ShapeDecoration(
-          color: const Color(0xFFEDF7ED),
+          color: const Color(0xff987554),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -107,13 +107,13 @@ class _ParameterCardState extends State<ParameterCard> {
                 Icon(
                   widget.icon,
                   size: 35,
-                  color: const Color((0xFF386150)),
+                  color: Colors.white,
                 ),
                 Text(
                   widget.title,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 18,
                     fontFamily: 'digital-7',
                     fontWeight: FontWeight.w600,

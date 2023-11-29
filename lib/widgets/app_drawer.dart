@@ -39,16 +39,16 @@ class _AppDrawerState extends State<AppDrawer> {
                   child: const Column(
                     children: [
                       CircleAvatar(
-                        backgroundImage: AssetImage('images/App_logo.png'),
-                        minRadius: 90,
+                        backgroundImage: AssetImage('images/eyy.png'),
+                        minRadius: 100,
                       ),
-                      SizedBox(height: 8),
+                      SizedBox(height: 10),
                       Text(
                         'KabuTech',
                         style: TextStyle(
                           fontFamily: 'Roboto',
-                          fontSize: 28,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w700,  
                           color: Colors.white,
                         ),
                       ),
@@ -104,30 +104,6 @@ class _AppDrawerState extends State<AppDrawer> {
                           MaterialPageRoute(
                             builder: ((context) =>
                                 SettingsPage(appState: widget.appState)),
-                          ),
-                        );
-                      },
-                    ),
-                    const Divider(color: Colors.black45),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.info,
-                        size: 32,
-                      ),
-                      title: Text(
-                        translations['about']
-                            [widget.appState.settings['language']],
-                        style: const TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: ((context) => AboutPage(
-                                  appState: widget.appState,
-                                )),
                           ),
                         );
                       },
