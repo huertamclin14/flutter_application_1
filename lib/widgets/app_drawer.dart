@@ -117,7 +117,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         size: 32,
                       ),
                       title: Text(
-                        translations['Control']
+                        translations['control']
                             [widget.appState.settings['language']],
                         style: const TextStyle(
                           fontSize: 14,
@@ -127,7 +127,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: ((context) => AboutPage(
+                            builder: ((context) => ControlPage(
                                   appState: widget.appState,
                                 )),
                           ),

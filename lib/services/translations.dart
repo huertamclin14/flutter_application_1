@@ -12,6 +12,9 @@ Map<String, dynamic> translations = {
     'en': 'About',
     'tg': 'Tungkol sa App',
   },
-
+  'control': {
+    'en': 'Control',
+    'tg': 'Kontrol',
+  },
   // Home Page
 };
