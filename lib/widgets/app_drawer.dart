@@ -8,7 +8,7 @@ import 'package:flutter_application_1/services/translations.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/settings_page.dart';
 import 'package:flutter_application_1/pages/control_page.dart';
-
+import 'package:flutter_application_1/widgets/control_card.dart';
 class AppDrawer extends StatefulWidget {
   final AppState appState;
   const AppDrawer({
@@ -113,7 +113,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     const Divider(color: Colors.black45),
                     ListTile(
                       leading: const Icon(
-                        Icons.gamepad,
+                        Icons.toggle_off_rounded,
                         size: 32,
                       ),
                       title: Text(
@@ -129,6 +129,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           MaterialPageRoute(
                             builder: ((context) => ControlPage(
                                   appState: widget.appState,
+                                  switchState: SwitchState(),
                                 )),
                           ),
                         );

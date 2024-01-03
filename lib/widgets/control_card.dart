@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+class SwitchState {
+  bool isSwitchOn = false;
+}
+
 class ControlCard extends StatefulWidget {
   final String title;
   final double value;
@@ -9,8 +13,9 @@ class ControlCard extends StatefulWidget {
   final String popupTitle;
   final String popupSubtitle;
   final String popupContent;
+  final SwitchState switchState;
   const ControlCard({
-    super.key,
+    Key? key,
     required this.title,
     required this.value,
     required this.decimalPlace,
@@ -19,7 +24,8 @@ class ControlCard extends StatefulWidget {
     required this.popupTitle,
     required this.popupSubtitle,
     required this.popupContent,
-  });
+    required this.switchState,
+  }): super(key: key);
 
   @override
   State<ControlCard> createState() => _ControlCardState();
@@ -28,6 +34,7 @@ class ControlCard extends StatefulWidget {
 class _ControlCardState extends State<ControlCard> {
   @override
   Widget build(BuildContext context) {
+    bool isSwitchOn = widget.switchState.isSwitchOn;
     return InkWell(
       onTap: () {
         showDialog(
@@ -89,7 +96,7 @@ class _ControlCardState extends State<ControlCard> {
         );
       },
       child: Container(
-        width: ((MediaQuery.of(context).size.width - 40) * 0.45),
+        width: ((MediaQuery.of(context).size.width - 40) * 0.46),
         height: 151,
         decoration: ShapeDecoration(
           color: const Color(0xff987554),
@@ -109,12 +116,13 @@ class _ControlCardState extends State<ControlCard> {
                   size: 40,
                   color: Colors.white,
                 ),
+                SizedBox(width: 10,),
                 Text(
                   widget.title,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 15,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w500,
                     letterSpacing: 1,
@@ -127,17 +135,14 @@ class _ControlCardState extends State<ControlCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  widget.value.toStringAsFixed(widget.decimalPlace),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 60,
-                    fontFamily: 'digital-7',
-                    fontWeight: FontWeight.w500,
-                    height: 0.34,
-                    letterSpacing: 1,
-                  ),
+                 Switch(
+                  value:isSwitchOn,
+                  activeColor: Colors.white,
+                  onChanged: (bool value) {
+                    setState(() {
+                     widget.switchState.isSwitchOn = value;
+                    });
+                  },
                 ),
                 Text(
                   widget.label,
