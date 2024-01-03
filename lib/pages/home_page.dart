@@ -6,6 +6,7 @@ import 'package:flutter_application_1/services/appstate.dart';
 import 'package:flutter_application_1/pages/parameter_page.dart';
 import 'package:flutter_application_1/pages/history_page.dart';
 import 'package:flutter_application_1/pages/about_page.dart';
+import 'package:flutter_application_1/pages/control_page.dart';
 
 import 'package:flutter_application_1/widgets/app_drawer.dart';
 import 'package:flutter_application_1/widgets/topcard.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         backgroundColor:
-            pageIndex == 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+            pageIndex == 0 ? const Color(0xff987554) : const Color(0xff987554),
         toolbarHeight: MediaQuery.of(context).size.height / 10,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
             }, // Image tapped
             splashColor: Colors.white10, // Splash color over image
             child: Ink.image(
-              fit: BoxFit.cover, // Fixes border issues
+              fit: BoxFit.contain, // Fixes border issues
               width: 16,
               height: 16,
               image: const AssetImage('images/ey.png'),
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(
               Icons.info,
-              color: Colors.black54,
+              color: Colors.white70,
               size: 25,
             ),
             onPressed: () {
@@ -117,13 +118,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         backgroundColor:
-            pageIndex == 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+            pageIndex == 0 ? const Color(0xff987554) : const Color(0xff987554),
         unselectedItemColor:
-            pageIndex != 0 ? const Color(0xFF386150) : const Color(0xff6F4E37),
+            pageIndex != 0 ? Colors.white54 : Colors.white54,
         unselectedIconTheme: IconThemeData(
           color: pageIndex != 0
-              ? const Color(0xFF386150)
-              : const Color(0xff6F4E37),
+              ? Colors.white54
+              : Colors.white54,
         ),
         selectedItemColor: Colors.white,
         selectedIconTheme: const IconThemeData(color: Colors.white),
@@ -133,7 +134,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         width: MediaQuery.of(context).size.width,
-        color: const Color(0xffc5e384),
+        color: Colors.white,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

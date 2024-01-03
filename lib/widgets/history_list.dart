@@ -103,7 +103,7 @@ class _HistoryListState extends State<HistoryList> {
             width: ((MediaQuery.of(context).size.width * 0.75)),
             height: 80,
             decoration: ShapeDecoration(
-              color: const Color(0xFFEDF7ED),
+              color: const Color(0xfff6f6f6),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -116,7 +116,7 @@ class _HistoryListState extends State<HistoryList> {
                   width: ((MediaQuery.of(context).size.width - 10) * 0.3),
                   height: 63,
                   decoration: ShapeDecoration(
-                    color: const Color(0xFF6F4E37),
+                    color: const Color(0xff987554),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -158,7 +158,7 @@ class _HistoryListState extends State<HistoryList> {
                       dateString,
                       style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 14,
+                        fontSize: 15,
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.w800,
                         height: 1.10,

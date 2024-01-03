@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/about_page.dart';
+import 'package:flutter_application_1/pages/control_page.dart';
 
 import 'package:flutter_application_1/services/appstate.dart';
 import 'package:flutter_application_1/services/translations.dart';
 
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/settings_page.dart';
-import 'package:flutter_application_1/pages/about_page.dart';
+import 'package:flutter_application_1/pages/control_page.dart';
 
 class AppDrawer extends StatefulWidget {
   final AppState appState;
@@ -39,15 +41,15 @@ class _AppDrawerState extends State<AppDrawer> {
                   child: const Column(
                     children: [
                       CircleAvatar(
-                        backgroundImage: AssetImage('images/App_logo.png'),
-                        minRadius: 90,
+                        backgroundImage: AssetImage('images/eyy.png'),
+                        minRadius: 105,
                       ),
-                      SizedBox(height: 8),
+                      SizedBox(height: 10),
                       Text(
                         'KabuTech',
                         style: TextStyle(
                           fontFamily: 'Roboto',
-                          fontSize: 28,
+                          fontSize: 30,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
                         ),
@@ -111,11 +113,11 @@ class _AppDrawerState extends State<AppDrawer> {
                     const Divider(color: Colors.black45),
                     ListTile(
                       leading: const Icon(
-                        Icons.info,
+                        Icons.gamepad,
                         size: 32,
                       ),
                       title: Text(
-                        translations['about']
+                        translations['Control']
                             [widget.appState.settings['language']],
                         style: const TextStyle(
                           fontSize: 14,

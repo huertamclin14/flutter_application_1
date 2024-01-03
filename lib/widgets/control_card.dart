@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ParameterCard extends StatefulWidget {
+class ControlCard extends StatefulWidget {
   final String title;
   final double value;
   final int decimalPlace;
@@ -9,7 +9,7 @@ class ParameterCard extends StatefulWidget {
   final String popupTitle;
   final String popupSubtitle;
   final String popupContent;
-  const ParameterCard({
+  const ControlCard({
     super.key,
     required this.title,
     required this.value,
@@ -22,10 +22,10 @@ class ParameterCard extends StatefulWidget {
   });
 
   @override
-  State<ParameterCard> createState() => _ParameterCardState();
+  State<ControlCard> createState() => _ControlCardState();
 }
 
-class _ParameterCardState extends State<ParameterCard> {
+class _ControlCardState extends State<ControlCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

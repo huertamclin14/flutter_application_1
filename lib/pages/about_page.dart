@@ -19,7 +19,7 @@ class AboutPage extends StatelessWidget {
           style: TextStyle(
               fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
         ),
-        backgroundColor: const Color(0xffc5e384),
+        backgroundColor: const Color(0xff987554),
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height / 9,
         leading: IconButton(

@@ -26,7 +26,7 @@ class _ParameterChartState extends State<ParameterChart> {
       width: ((MediaQuery.of(context).size.width - 40) * 0.9),
       height: 250,
       decoration: ShapeDecoration(
-        color: const Color(0xFFEDF7ED),
+        color: const Color(0xfff6f6f6),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -41,7 +41,7 @@ class _ParameterChartState extends State<ParameterChart> {
             height: 40,
             padding: const EdgeInsets.all(5),
             decoration: ShapeDecoration(
-              color: const Color((0xFF386150)),
+              color: const Color((0xff987554)),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -86,7 +86,7 @@ class _ParameterChartState extends State<ParameterChart> {
                     isCurved: false,
                     dotData: const FlDotData(show: false),
                     barWidth: 3,
-                    color: const Color(0xffff5252),
+                    color: const Color(0xffC4A484),
                   ),
                 ],
                 borderData: FlBorderData(

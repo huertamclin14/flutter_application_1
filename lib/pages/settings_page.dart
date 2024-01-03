@@ -68,7 +68,7 @@ class _SettingsPageState extends State<SettingsPage> {
               fit: BoxFit.cover, // Fixes border issues
               width: 16,
               height: 16,
-              image: const AssetImage('images/App_logo.png'),
+              image: const AssetImage('images/ey.png'),
             ),
           ),
         ),

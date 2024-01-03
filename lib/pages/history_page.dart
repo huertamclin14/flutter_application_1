@@ -65,7 +65,7 @@ class _HistoryPageState extends State<HistoryPage> {
                   width: ((MediaQuery.of(context).size.width * 0.8)),
                   height: 42,
                   decoration: ShapeDecoration(
-                    color: const Color(0XFF6F4E37),
+                    color: const Color(0xff987554),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -115,9 +115,9 @@ class _HistoryPageState extends State<HistoryPage> {
                       backgroundColor: MaterialStateColor.resolveWith(
                           (Set<MaterialState> states) {
                         if (states.contains(MaterialState.selected)) {
-                          return const Color.fromARGB(255, 110, 60, 24);
+                          return const Color(0xff987554);
                         }
-                        return const Color(0XFF6F4E37);
+                        return const Color(0xff987554);
                       }),
                     ),
                     onSelectionChanged: (Set<Calendar> newSelection) {

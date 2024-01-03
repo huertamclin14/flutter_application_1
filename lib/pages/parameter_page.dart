@@ -163,7 +163,7 @@ class _ParameterPageState extends State<ParameterPage> {
               width: ((MediaQuery.of(context).size.width * 0.8)),
               height: 42,
               decoration: ShapeDecoration(
-                color: const Color((0xFF386150)),
+                color: const Color((0xff987554)),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
