@@ -25,6 +25,7 @@ class _ParameterPageState extends State<ParameterPage> {
 
   @override
   void initState() {
+
     db
         .collection('parameters')
         .orderBy('created_at')
@@ -96,7 +97,7 @@ class _ParameterPageState extends State<ParameterPage> {
     return Container(
       padding: const EdgeInsets.all(8),
       child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 1550),
+        constraints: const BoxConstraints(minHeight: 400),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -157,59 +158,6 @@ class _ParameterPageState extends State<ParameterPage> {
                       'Description: The displayed light intensity represents the real-time environmental parameter reading. The prototype is designed to maintain and control the light intensity within a specific range of 500 LUX. This light intensity range is crucial as it corresponds to the ideal conditions required for mushroom cultivation.',
                 ),
               ],
-            ),
-            const SizedBox(height: 40),
-            Container(
-              width: ((MediaQuery.of(context).size.width * 0.8)),
-              height: 42,
-              decoration: ShapeDecoration(
-                color: const Color((0xff987554)),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-              child: Container(
-                alignment: Alignment.center,
-                child: const Text(
-                  "PARAMETER'S HISTORY ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w700,
-                    height: 1.10,
-                    letterSpacing: 0.46,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            ParameterChart(
-              title: 'TEMPERATURE',
-              icon: Icons.thermostat,
-              parameterList: temperatures,
-              interval: 15,
-            ),
-            const SizedBox(height: 30),
-            ParameterChart(
-              title: 'HUMIDITY',
-              icon: Icons.water_drop_sharp,
-              parameterList: humidities,
-              interval: 15,
-            ),
-            const SizedBox(height: 30),
-            ParameterChart(
-              title: 'CO2 LEVEL',
-              icon: Icons.co2,
-              parameterList: carbons,
-              interval: 15,
-            ),
-            const SizedBox(height: 30),
-            ParameterChart(
-              title: 'LIGHT INTENSITY',
-              icon: Icons.lightbulb_sharp,
-              parameterList: lights,
-              interval: 1000,
             ),
           ],
         ),

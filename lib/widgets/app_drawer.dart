@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/about_page.dart';
 import 'package:flutter_application_1/pages/control_page.dart';
+import 'package:flutter_application_1/pages/parameter_chart_page.dart';
 
 import 'package:flutter_application_1/services/appstate.dart';
 import 'package:flutter_application_1/services/translations.dart';
 
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/settings_page.dart';
-import 'package:flutter_application_1/pages/control_page.dart';
+
 import 'package:flutter_application_1/widgets/control_card.dart';
+import 'package:flutter_application_1/widgets/parameter_chart.dart';
 class AppDrawer extends StatefulWidget {
   final AppState appState;
   const AppDrawer({
@@ -129,7 +130,29 @@ class _AppDrawerState extends State<AppDrawer> {
                           MaterialPageRoute(
                             builder: ((context) => ControlPage(
                                   appState: widget.appState,
-                                  switchState: SwitchState(),
+                                )),
+                          ),
+                        );
+                      },
+                    ),
+                     ListTile(
+                      leading: const Icon(
+                        Icons.show_chart,
+                        size: 32,
+                      ),
+                      title: Text(
+                        translations['chart']
+                            [widget.appState.settings['language']],
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => ParameterChartPage(
+                                  appState: widget.appState,
                                 )),
                           ),
                         );

@@ -1,30 +1,24 @@
 import 'package:flutter/material.dart';
 
-class SwitchState {
-  bool isSwitchOn = false;
-}
-
 class ControlCard extends StatefulWidget {
   final String title;
-  final double value;
-  final int decimalPlace;
-  final String label;
+  final String onLabel;
+  final String offLabel;
   final IconData icon;
   final String popupTitle;
   final String popupSubtitle;
   final String popupContent;
-  final SwitchState switchState;
+  final Function(bool value) onPressed;
   const ControlCard({
     Key? key,
     required this.title,
-    required this.value,
-    required this.decimalPlace,
     required this.icon,
-    required this.label,
+    required this.onLabel,
+    required this.offLabel,
     required this.popupTitle,
     required this.popupSubtitle,
     required this.popupContent,
-    required this.switchState,
+    required this.onPressed,
   }): super(key: key);
 
   @override
@@ -32,9 +26,9 @@ class ControlCard extends StatefulWidget {
 }
 
 class _ControlCardState extends State<ControlCard> {
+  bool on = false;
   @override
   Widget build(BuildContext context) {
-    bool isSwitchOn = widget.switchState.isSwitchOn;
     return InkWell(
       onTap: () {
         showDialog(
@@ -130,26 +124,26 @@ class _ControlCardState extends State<ControlCard> {
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                  Switch(
-                  value:isSwitchOn,
+                  value:on,
                   activeColor: Colors.white,
                   onChanged: (bool value) {
-                    setState(() {
-                     widget.switchState.isSwitchOn = value;
+                    setState(() { 
+                     on = value;
+                     widget.onPressed(value);
                     });
                   },
                 ),
-                Text(
-                  widget.label,
+                Text( on ? widget.onLabel : widget.offLabel,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
-                    fontFamily: 'digital-7',
+                    fontFamily: 'Roboto',
                     fontWeight: FontWeight.w400,
                     letterSpacing: 0.46,
                   ),

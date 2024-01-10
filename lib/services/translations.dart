@@ -16,5 +16,9 @@ Map<String, dynamic> translations = {
     'en': 'Control',
     'tg': 'Kontrol',
   },
+  'chart': {
+    'en': 'Chart',
+    'tg': 'tsart',
+  },
   // Home Page
 };
