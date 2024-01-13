@@ -1,9 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_logs/flutter_logs.dart';
 
 import 'package:flutter_application_1/widgets/parameter_card.dart';
-import 'package:flutter_application_1/widgets/parameter_chart.dart';
 
 class ParameterPage extends StatefulWidget {
   const ParameterPage({super.key});
@@ -13,83 +14,41 @@ class ParameterPage extends StatefulWidget {
 }
 
 class _ParameterPageState extends State<ParameterPage> {
+  late StreamSubscription subscription;
   FirebaseFirestore db = FirebaseFirestore.instance;
   double temperature = 0.0;
   double humidity = 0.0;
   double co2 = 0.0;
   double light = 0.0;
-  List<dynamic> temperatures = [];
-  List<dynamic> humidities = [];
-  List<dynamic> carbons = [];
-  List<dynamic> lights = [];
 
   @override
   void initState() {
-
-    db
+    subscription = db
         .collection('parameters')
-        .orderBy('created_at')
-        .limit(30)
+        .orderBy('created_at', descending: true)
+        .limit(1)
         .snapshots()
         .listen(
       (event) {
         FlutterLogs.logInfo(
-            'Homepage', 'Firebase', 'Got ${event.docs.first.data()}');
+            'Parameters', 'Firebase', 'Got ${event.docs.last.data()}');
         setState(() {
           temperature = event.docs.last.data()['temperature'].toDouble();
           humidity = event.docs.last.data()['humidity'].toDouble();
           co2 = event.docs.last.data()['co2'].toDouble();
           light = event.docs.last.data()['light'].toDouble();
         });
-
-        temperatures = [];
-        if (event.docs.length > 30) {
-          event.docs.getRange(0, 30).forEach((element) {
-            temperatures.add(element.data()['temperature'].toDouble());
-          });
-        } else {
-          for (var element in event.docs) {
-            temperatures.add(element.data()['temperature'].toDouble());
-          }
-        }
-
-        humidities = [];
-        if (event.docs.length > 30) {
-          event.docs.getRange(0, 30).forEach((element) {
-            humidities.add(element.data()['humidity'].toDouble());
-          });
-        } else {
-          for (var element in event.docs) {
-            humidities.add(element.data()['humidity'].toDouble());
-          }
-        }
-
-        carbons = [];
-        if (event.docs.length > 30) {
-          event.docs.getRange(0, 30).forEach((element) {
-            carbons.add(element.data()['co2'].toDouble());
-          });
-        } else {
-          for (var element in event.docs) {
-            carbons.add(element.data()['co2'].toDouble());
-          }
-        }
-
-        lights = [];
-        if (event.docs.length > 30) {
-          event.docs.getRange(0, 30).forEach((element) {
-            lights.add(element.data()['light'].toDouble());
-          });
-        } else {
-          for (var element in event.docs) {
-            lights.add(element.data()['light'].toDouble());
-          }
-        }
       },
       onError: (error) =>
           FlutterLogs.logInfo('Homepage', 'Firebase', 'Error: $error'),
     );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
   }
 
   @override

@@ -6,7 +6,6 @@ import 'package:flutter_application_1/services/appstate.dart';
 import 'package:flutter_application_1/pages/parameter_page.dart';
 import 'package:flutter_application_1/pages/history_page.dart';
 import 'package:flutter_application_1/pages/about_page.dart';
-import 'package:flutter_application_1/pages/control_page.dart';
 
 import 'package:flutter_application_1/widgets/app_drawer.dart';
 import 'package:flutter_application_1/widgets/topcard.dart';

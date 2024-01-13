@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "102886714635",
-    "project_id": "kabutech-d5714",
-    "storage_bucket": "kabutech-d5714.appspot.com"
+    "project_number": "384502540582",
+    "project_id": "kabutech-48916",
+    "storage_bucket": "kabutech-48916.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:102886714635:android:cba09bf115143cd42dc60e",
+        "mobilesdk_app_id": "1:384502540582:android:b621a7d11e74f72cd879e7",
         "android_client_info": {
-          "package_name": "com.example.flutter_application_1"
+          "package_name": "com.example.kabutech"
         }
       },
       "oauth_client": [
         {
-          "client_id": "102886714635-bdk5pc3s4dbfb7aggrrocnvpbqt0d1nl.apps.googleusercontent.com",
+          "client_id": "384502540582-gn23fue1aoojndrc65kehj0tcaqhtcmi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAtk2S-UhnZzxRe1M32L3IPZHixeo14DMo"
+          "current_key": "AIzaSyB1C4CJ0Io_ZDCx_3unuL57CBP_hqeP1oo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "102886714635-bdk5pc3s4dbfb7aggrrocnvpbqt0d1nl.apps.googleusercontent.com",
+              "client_id": "384502540582-gn23fue1aoojndrc65kehj0tcaqhtcmi.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "384502540582-0soiot9m1u3ali5ischjj4ekhhlob30v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kabutech"
+              }
             }
           ]
         }

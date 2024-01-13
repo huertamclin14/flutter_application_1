@@ -8,8 +8,6 @@ import 'package:flutter_application_1/services/translations.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/settings_page.dart';
 
-import 'package:flutter_application_1/widgets/control_card.dart';
-import 'package:flutter_application_1/widgets/parameter_chart.dart';
 class AppDrawer extends StatefulWidget {
   final AppState appState;
   const AppDrawer({
